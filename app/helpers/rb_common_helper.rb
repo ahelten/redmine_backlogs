@@ -221,9 +221,10 @@ filter:progid:DXImageTransform.Microsoft.Gradient(Enabled=1,GradientType=0,Start
     if collection.include?([User.current.name,User.current.id])
       me_str = "<< #{l(:label_me)} >>"
       collection.insert(0,[me_str,User.current.id]) # Add <<me>> entry
+    else
+      collection.insert(0,["",0]) # Add blank entry
     end
 
-    collection.insert(0,["",0]) # Add blank entry
   end
 
   def tidy(html)
